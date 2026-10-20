@@ -18,20 +18,22 @@ function Tutor() {
     setExibirForm(true);
   };
 
+  const editarObjeto = (tutor) => {
+    setObjeto(tutor);
+    setExibirForm(true);
+  };
 
   const acaoCadastrar = async (e) => { 
-  e.preventDefault();
-  const metodo = objeto.codigo === 0 ? "POST" : "PUT";
-  await cadastraTutorAPI(objeto, metodo);
-  setExibirForm(false);
-  recuperaTutores();
+   const metodo = objeto.codigo === 0 ? "POST" : "PUT";
+   await cadastraTutorAPI(objeto, metodo);
+   setExibirForm(false);
+   recuperaTutores();
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setObjeto({ ...objeto, [name]: value });
   };
-
 
   const remover = async (codigo) => {
     if (window.confirm("Deseja remover este tutor?")) {

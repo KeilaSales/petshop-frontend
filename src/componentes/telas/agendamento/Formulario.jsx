@@ -1,9 +1,9 @@
 import { useContext } from 'react';
 import { Modal, Button, Form, FloatingLabel, Container, Row, Col } from 'react-bootstrap';
-import PetContext from './PetContext';
+import AgendamentoContext from './AgendamentoContext';
 
 function Formulario() {
-  const { objeto, handleChange, acaoCadastrar, exibirForm, setExibirForm, listaTutores } = useContext(PetContext);
+  const { objeto, handleChange, acaoCadastrar, exibirForm, setExibirForm, listaTutores } = useContext(AgendamentoContext);
 
   return (
     <Modal show={exibirForm} onHide={() => setExibirForm(false)} backdrop="static" keyboard={false}>
@@ -15,33 +15,49 @@ function Formulario() {
           <Container>
             <Row>
               <Col xs={12} className="mb-3">
-                <FloatingLabel controlId="txtNome" label="Nome do Pet *">
-                  <Form.Control type="text" required name="nome" value={objeto?.nome || ''} onChange={handleChange} placeholder="Nome do Pet" />
-                </FloatingLabel>
-              </Col>
-              <Col xs={12} className="mb-3">
-                <FloatingLabel controlId="txtEspecie" label="Espécie *">
-                  <Form.Select required name="especie" value={objeto?.especie || ''} onChange={handleChange}>
-                    <option value="">Selecione...</option>
-                    <option value="Cão">Cão</option>
-                    <option value="Gato">Gato</option>
-                    <option value="Ave">Ave</option>
-                    <option value="Outro">Outro</option>
+                <FloatingLabel controlId="txtServico" label="Tipo de Serviço *">
+                  <Form.Select required name="servico" value={objeto?.servico || ''} onChange={handleChange}>
+                    <option value="">Selecione o serviço...</option>
+                    <option value="Somente Banho">Somente Banho</option>
+                    <option value="Somente Tosa">Somente Tosa</option>
+                    <option value="Banho e Tosa">Banho e Tosa</option>
+                    <option value="Consulta Veterinária">Consulta Veterinária</option>
+                    <option value="Hidratação e Estética">Hidratação e Estética</option>
                   </Form.Select>
                 </FloatingLabel>
               </Col>
+
               <Col xs={12} className="mb-3">
-                <FloatingLabel controlId="txtRaca" label="Raça *">
-                  <Form.Control type="text" required name="raca" value={objeto?.raca || ''} onChange={handleChange} placeholder="Raça" />
+                <FloatingLabel controlId="txtData" label="Data do Agendamento *">
+                  <Form.Control
+                    type="date"
+                    required
+                    name="data_agendamento"
+                    value={objeto?.data_agendamento || ''}
+                    onChange={handleChange}
+                  />
                 </FloatingLabel>
               </Col>
               <Col xs={12} className="mb-3">
-                <FloatingLabel controlId="txtTutor" label="Tutor Responsável *">
-                  <Form.Select required name="tutor" value={objeto?.tutor || ''} onChange={handleChange}>
-                    <option value="">Selecione um tutor...</option>
-                    {listaTutores?.map((tutor) => (
-                      <option key={tutor.codigo} value={tutor.codigo}>
-                        {tutor.nome}
+                <FloatingLabel controlId="txtValor" label="Valor (R$) *">
+                  <Form.Control
+                    type="number"
+                    step="0.01"
+                    required
+                    name="valor"
+                    value={objeto?.valor || ''}
+                    onChange={handleChange}
+                    placeholder="0.00"
+                  />
+                </FloatingLabel>
+              </Col>
+              <Col xs={12} className="mb-3">
+                <FloatingLabel controlId="txtPet" label="Pet Agendado *">
+                  <Form.Select required name="pet" value={objeto?.pet || ''} onChange={handleChange}>
+                    <option value="">Selecione um pet...</option>
+                    {listaPets?.map((pet) => (
+                      <option key={pet.codigo} value={pet.codigo}>
+                        {pet.nome} {pet.tutor_nome ? `(Tutor: ${pet.tutor_nome})` : ''}
                       </option>
                     ))}
                   </Form.Select>
@@ -52,7 +68,7 @@ function Formulario() {
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={() => setExibirForm(false)}>Cancelar</Button>
-          <Button variant="primary" type="submit">Salvar Pet</Button>
+          <Button variant="primary" type="submit">Salvar Agendamento</Button>
         </Modal.Footer>
       </Form>
     </Modal>

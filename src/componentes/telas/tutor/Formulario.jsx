@@ -21,7 +21,8 @@ function Formulario() {
   return (
     <Modal 
       show={exibirForm} 
-      onHide={() => { setExibirForm(false); setValidated(false); }} 
+      onHide={() => { setExibirForm(false); 
+                      setValidated(false); }} 
       backdrop="static" 
       keyboard={false}
     >
@@ -49,24 +50,27 @@ function Formulario() {
                     onChange={handleChange} 
                     placeholder="Nome do Tutor" 
                   />
-                  <Form.Control.Feedback>Campo válido!</Form.Control.Feedback>
-                  <Form.Control.Feedback type="invalid">Informe o nome do tutor.</Form.Control.Feedback>
+                  <Form.Control.Feedback type="invalid">
+                    Informe um nome válido (mínimo 3 caracteres).
+                  </Form.Control.Feedback>
                 </FloatingLabel>
               </Col>
 
               <Col xs={12} className="mb-3">
-                <FloatingLabel controlId="txtTelefone" label="Telefone *">
-                  <Form.Control 
-                    type="text" 
-                    required 
-                    name="telefone" 
-                    value={objeto?.telefone || ''} 
-                    onChange={handleChange} 
-                    placeholder="(00) 00000-0000" 
+                <FloatingLabel controlId="txtTelefone" label="Telefone * (Ex: (54) 99999-0000)">
+                  <Form.Control
+                    type="text"
+                    required
+                    pattern="^\(?\d{2}\)?[\s-]?\d{4,5}[\s-]?\d{4}$"
+                    name="telefone"
+                    value={objeto?.telefone || ''}
+                    onChange={handleChange}
+                    placeholder="(54) 99999-0000"
                   />
-                  <Form.Control.Feedback>Campo válido!</Form.Control.Feedback>
-                  <Form.Control.Feedback type="invalid">Informe o telefone de contato.</Form.Control.Feedback>
-                </FloatingLabel>
+                  <Form.Control.Feedback type="invalid">
+                    Informe um telefone válido no formato (XX) XXXXX-XXXX.
+                  </Form.Control.Feedback>
+                  </FloatingLabel>
               </Col>
 
               <Col xs={12} className="mb-3">
@@ -79,9 +83,10 @@ function Formulario() {
                     onChange={handleChange} 
                     placeholder="email@exemplo.com" 
                   />
-                  <Form.Control.Feedback>Campo válido!</Form.Control.Feedback>
-                  <Form.Control.Feedback type="invalid">Informe um e-mail válido.</Form.Control.Feedback>
-                </FloatingLabel>
+                  <Form.Control.Feedback type="invalid">
+                    Informe um e-mail válido.
+                  </Form.Control.Feedback>
+                  </FloatingLabel>
               </Col>
             </Row>
           </Container>
