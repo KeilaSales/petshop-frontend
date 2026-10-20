@@ -1,29 +1,18 @@
-import { Navbar, Nav, Container } from 'react-bootstrap';
-import { Outlet, Link } from 'react-router-dom';
+import { Container, Card } from 'react-bootstrap';
 
-function Menu() {
+function Home() {
   return (
-    <>
-      <Navbar bg="dark" variant="dark" expand="lg">
-        <Container>
-          <Navbar.Brand as={Link} to="/">PetShop PWA</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link as={Link} to="/">Home</Nav.Link>
-              <Nav.Link as={Link} to="/tutores">Tutores</Nav.Link>
-              <Nav.Link as={Link} to="/pets">Pets</Nav.Link>
-              <Nav.Link as={Link} to="/agendamentos">Agendamentos</Nav.Link>
-              <Nav.Link as={Link} to="/sobre">Sobre</Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-      <Container className="mt-4">
-        <Outlet />
-      </Container>
-    </>
+    <Container className="mt-4">
+      <Card className="text-center border-0 bg-light p-4 shadow-sm">
+        <Card.Body>
+          <h1 className="display-5 fw-bold text-primary mb-3">🐾 Bem-vindo ao PetShop Gestão</h1>
+          <p className="fs-5 text-secondary">
+            Sistema completo para gerenciamento de clientes, animais de estimação e agendamento de serviços.
+          </p>
+        </Card.Body>
+      </Card>
+    </Container>
   );
 }
 
-export default Menu;
+export default Home;
