@@ -4,8 +4,15 @@ import Table from 'react-bootstrap/Table';
 import { Button } from 'react-bootstrap';
 
 function Tabela() {
-  const { listaObjetos, remover } = useContext(AgendamentoContext);
+  const { listaObjetos, remover, novoObjeto } = useContext(AgendamentoContext);
 
+ <div className="d-flex justify-content-between align-items-center mb-3">
+  <h2 className="fw-bold text-primary">Gerenciamento de Registros</h2>
+  <Button variant="success" onClick={() => novoObjeto()}>
+    <i className="bi bi-plus-circle me-1"></i> Novo Cadastro
+  </Button>
+  </div>
+  
   return (
     <div style={{ padding: '20px' }}>
       <h1>Gerenciamento de Agendamentos</h1>

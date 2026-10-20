@@ -4,12 +4,14 @@ import { Outlet, Link } from 'react-router-dom';
 function Menu() {
   return (
     <>
-      <Navbar bg="dark" variant="dark" expand="lg">
+      <Navbar bg="primary" variant="dark" expand="lg" className="shadow-sm">
         <Container>
-          <Navbar.Brand as={Link} to="/">PetShop PWA</Navbar.Brand>
+          <Navbar.Brand as={Link} to="/" className="fw-bold fs-4">
+            🐾 PetShop Gestão
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
+            <Nav className="ms-auto">
               <Nav.Link as={Link} to="/">Home</Nav.Link>
               <Nav.Link as={Link} to="/tutores">Tutores</Nav.Link>
               <Nav.Link as={Link} to="/pets">Pets</Nav.Link>
