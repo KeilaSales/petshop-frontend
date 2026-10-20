@@ -1,4 +1,4 @@
-import { useContext, useState} from 'react';
+import { useContext, useState } from 'react';
 import { Modal, Button, Form, FloatingLabel, Container, Row, Col } from 'react-bootstrap';
 import TutorContext from './TutorContext';
 
@@ -19,10 +19,16 @@ function Formulario() {
   };
 
   return (
-    <Modal show={exibirForm} onHide={() => setExibirForm(false)} backdrop="static" keyboard={false}>
+    <Modal 
+      show={exibirForm} 
+      onHide={() => { setExibirForm(false); setValidated(false); }} 
+      backdrop="static" 
+      keyboard={false}
+    >
       <Modal.Header closeButton className="bg-primary text-white">
         <Modal.Title>{objeto?.codigo === 0 ? "Cadastrar Novo Tutor" : "Editar Tutor"}</Modal.Title>
       </Modal.Header>
+
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
         <Modal.Body>
           <Container>
@@ -32,6 +38,7 @@ function Formulario() {
                   <Form.Control type="text" readOnly name="codigo" value={objeto?.codigo || 0} />
                 </FloatingLabel>
               </Col>
+              
               <Col xs={12} className="mb-3">
                 <FloatingLabel controlId="txtNome" label="Nome do Tutor *">
                   <Form.Control 
@@ -46,6 +53,7 @@ function Formulario() {
                   <Form.Control.Feedback type="invalid">Informe o nome do tutor.</Form.Control.Feedback>
                 </FloatingLabel>
               </Col>
+
               <Col xs={12} className="mb-3">
                 <FloatingLabel controlId="txtTelefone" label="Telefone *">
                   <Form.Control 
@@ -60,6 +68,7 @@ function Formulario() {
                   <Form.Control.Feedback type="invalid">Informe o telefone de contato.</Form.Control.Feedback>
                 </FloatingLabel>
               </Col>
+
               <Col xs={12} className="mb-3">
                 <FloatingLabel controlId="txtEmail" label="E-mail *">
                   <Form.Control 
@@ -77,9 +86,14 @@ function Formulario() {
             </Row>
           </Container>
         </Modal.Body>
+
         <Modal.Footer>
-          <Button variant="secondary" onClick={() => setExibirForm(false)}>Cancelar</Button>
-          <Button variant="success" type="submit">Salvar Tutor</Button>
+          <Button variant="secondary" onClick={() => { setExibirForm(false); setValidated(false); }}>
+            Cancelar
+          </Button>
+          <Button variant="success" type="submit">
+            Salvar Tutor
+          </Button>
         </Modal.Footer>
       </Form>
     </Modal>
