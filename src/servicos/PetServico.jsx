@@ -15,3 +15,13 @@ export const deletePetPorCodigoAPI = async (codigo) => {
   const data = await response.json();
   return data;
 };
+
+export const cadastraPetAPI = async (objeto, metodo) => {
+  const response = await fetch(`${process.env.REACT_APP_ENDERECO_API}/pet`, {
+    method: metodo,
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(objeto)
+  });
+  const data = await response.json();
+  return data;
+};
