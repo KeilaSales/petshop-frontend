@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
 import Menu from './componentes/Menu';
 import Home from './componentes/Home';
 import Sobre from './componentes/Sobre';

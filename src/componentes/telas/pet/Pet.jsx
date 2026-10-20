@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getPetsAPI, deletePetPorCodigoAPI, cadastraPetAPI } from "../../../servicos/PetServico";import PetContext from "./PetContext";
+import { getPetsAPI, deletePetPorCodigoAPI, cadastraPetAPI } from "../../../servicos/PetServico";
 import { getTutoresAPI } from "../../../servicos/TutorServico";
 import Tabela from "./Tabela";
 import Formulario from "./Formulario";

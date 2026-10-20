@@ -1,6 +1,5 @@
 import { Navbar, Nav, Container, Button } from 'react-bootstrap';
-import { Outlet, Link, useNavigate} from 'react-router-dom';
-
+import { Outlet, Link, useNavigate } from 'react-router-dom';
 function Menu() {
   const navigate = useNavigate();
   const logado = localStorage.getItem('usuarioLogado') === 'true';
