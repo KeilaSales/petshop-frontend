@@ -110,13 +110,19 @@ function Home() {
       );
 
       setAlerta({ show: true, variant: 'success', msg: 'Agendamento e cadastro realizados com sucesso!' });
-      carregarDados();
-      setNomeTutor('');
-      setTelefoneTutor('');
-      setEmailTutor('');
-      setNomePet('');
-      setRacaPet('');
-      setDataAgendamento('');
+      
+      await carregarDados(); 
+
+    setTutorExistente('');
+    setNomeTutor('');
+    setTelefoneTutor('');
+    setEmailTutor('');
+    setNomePet('');
+    setEspeciePet('');
+    setRacaPet('');
+    setServico('');
+    setDataAgendamento('');
+    setHorario('08:00');
     } catch (err) {
       setAlerta({ show: true, variant: 'danger', msg: 'Erro ao processar o agendamento: ' + err.message });
     }
@@ -136,14 +142,14 @@ function Home() {
       )}
 
       <Card className="shadow-sm border-0 p-4">
-        <h3 className="fw-bold text-primary mb-3">📅 Agendamento de Serviço Público</h3>
+        <h3 className="fw-bold text-primary mb-3">Agendamento de Serviço</h3>
         <Form onSubmit={handleAgendarPublico}>
           <h5 className="fw-bold text-secondary mt-2">1. Dados do Tutor</h5>
           <Row className="mb-3">
             <Col md={6}>
               <Form.Label>Selecione se já é cliente ou deixe em branco para novo:</Form.Label>
               <Form.Select value={tutorExistente} onChange={e => setTutorExistente(e.target.value)}>
-                <option value="">-- Novo Tutor --</option>
+                <option value=""> Novo Tutor </option>
                 {tutores.map(t => (
                   <option key={t.codigo} value={t.codigo}>
                     {t.nome} ({t.email})

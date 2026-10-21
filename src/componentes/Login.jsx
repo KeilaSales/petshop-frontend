@@ -21,7 +21,7 @@ function Login() {
   return (
     <Container className="d-flex justify-content-center mt-5">
       <Card style={{ width: '400px' }} className="shadow-sm p-4">
-        <h3 className="fw-bold text-center text-primary mb-3">🔒 Área do Funcionário</h3>
+        <h3 className="fw-bold text-center text-primary mb-3">Área do Funcionário</h3>
         {erro && <Alert variant="danger">{erro}</Alert>}
         <Form onSubmit={handleLogin}>
           <Form.Group className="mb-3">

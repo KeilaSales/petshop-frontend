@@ -8,7 +8,7 @@ function Sobre() {
         <Card.Body>
           <h2 className="fw-bold text-primary mb-3">Gerenciador de Pet Shop</h2>
           <p className="fs-5 text-secondary">
-            Desenvolvido para simplificar o controle operacional do estabelecimento, o sistema permite ao proprietário e colaboradores gerenciar de forma rápida e intuitiva todo o fluxo de clientes, animais cadastrados e agendamentos de serviços.
+            Desenvolvido para simplificar o controle operacional do estabelecimento, o sistema permite ao proprietário e colaboradores gerenciar de forma rápida e intuitiva todo o fluxo de clientes, animais cadastrados e agendamentos de serviços. Tambem serve para os clientes poderem agendar serviços de banho, tosa e consultas veterinárias de forma prática e eficiente, garantindo uma experiência satisfatória para todos os envolvidos.
           </p>
           <hr />
           <h4 className="fw-bold mt-4">Funcionalidades do Painel</h4>

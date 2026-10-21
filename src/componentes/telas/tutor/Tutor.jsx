@@ -36,9 +36,18 @@ function Tutor() {
   };
 
   const remover = async (codigo) => {
-    if (window.confirm("Deseja remover este tutor?")) {
-      await deleteTutorPorCodigoAPI(codigo);
-      recuperaTutores();
+    if (window.confirm("Deseja realmente remover este tutor?")) {
+      try {
+        const retorno = await deleteTutorPorCodigoAPI(codigo);
+        if (retorno.status === 'error') {
+         alert(retorno.message); // Exibe o erro vindo do backend na tela do usuario
+        } else {
+          alert(retorno.message);
+          recuperaTutores();
+       }
+      } catch (err) {
+        alert("Erro ao remover tutor: " + err);
+      }
     }
   };
 
