@@ -90,8 +90,13 @@ function Home() {
       const codPet = resPet.objeto ? resPet.objeto.codigo : resPet.codigo;
 
       let valor = 50.0;
-      if (servico.includes('Tosa')) valor = 70.0;
-      if (servico.includes('Banho e Tosa')) valor = 100.0;
+      if (servico.includes('Tosa Higiênica')) valor = 40.0;
+      if (servico.includes('Somente Tosa')) valor = 70.0;
+      if (servico.includes('Banho e Tosa Completa')) valor = 110.0;
+      if (servico.includes('Hidratação de Pelagem')) valor = 65.0;
+      if (servico.includes('Consulta Veterinária')) valor = 130.0;
+      if (servico.includes('Corte de Unhas e Limpeza de Ouvidos')) valor = 30.0;
+
 
       await cadastraAgendamentoAPI(
         {
@@ -200,6 +205,7 @@ function Home() {
               <Form.Select value={especiePet} onChange={e => setEspeciePet(e.target.value)}>
                 <option value="Cão">Cão</option>
                 <option value="Gato">Gato</option>
+                <option value="Ave">Ave</option>
                 <option value="Outro">Outro</option>
               </Form.Select>
             </Col>
@@ -220,10 +226,13 @@ function Home() {
             <Col md={4}>
               <Form.Label>Serviço *</Form.Label>
               <Form.Select value={servico} onChange={e => setServico(e.target.value)} required>
-                <option value="">Selecione...</option>
-                <option value="Banho">Somente Banho (R$ 50,00)</option>
-                <option value="Tosa">Somente Tosa (R$ 70,00)</option>
-                <option value="Banho e Tosa">Banho e Tosa (R$ 100,00)</option>
+                <option value="Somente Banho">Somente Banho (R$ 50,00)</option>
+                <option value="Tosa Higiênica">Tosa Higiênica (R$ 40,00)</option>
+                <option value="Somente Tosa">Somente Tosa (R$ 70,00)</option>
+                <option value="Banho e Tosa Completa">Banho e Tosa Completa (R$ 110,00)</option>
+                <option value="Hidratação de Pelagem">Hidratação de Pelagem (R$ 65,00)</option>
+                <option value="Consulta Veterinária">Consulta Veterinária (R$ 130,00)</option>
+                <option value="Corte de Unhas e Limpeza de Ouvidos">Corte de Unhas e Limpeza (R$ 30,00)</option>
               </Form.Select>
             </Col>
             <Col md={4}>
@@ -241,9 +250,11 @@ function Home() {
                 <option value="08:00">08:00</option>
                 <option value="09:00">09:00</option>
                 <option value="10:00">10:00</option>
+                <option value="11:00">11:00</option>
                 <option value="14:00">14:00</option>
                 <option value="15:00">15:00</option>
                 <option value="16:00">16:00</option>
+                <option value="17:00">17:00</option>
               </Form.Select>
             </Col>
           </Row>

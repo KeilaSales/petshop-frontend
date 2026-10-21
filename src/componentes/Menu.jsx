@@ -33,9 +33,9 @@ function Menu() {
                   Sair
                 </Button>
               ) : (
-                <Nav.Link as={Link} to="/login" className="btn btn-light text-primary btn-sm ms-2 px-3 fw-bold">
+                <Button as={Link} to="/login" className="btn btn-light text-primary btn-sm ms-2 px-3 fw-bold">
                   Login Funcionário
-                </Nav.Link>
+                </Button>
               )}
             </Nav>
           </Navbar.Collapse>
