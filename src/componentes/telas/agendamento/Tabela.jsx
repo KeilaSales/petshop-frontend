@@ -4,8 +4,8 @@ import Table from 'react-bootstrap/Table';
 import { Button } from 'react-bootstrap';
 
 function Tabela() {
-const { listaObjetos, remover, novoObjeto, editarObjeto } = useContext(AgendamentoContext);
-  
+ const { listaObjetos, remover, novoObjeto, editarObjeto } = useContext(AgendamentoContext);  
+ 
  return (
     <div style={{ padding: '20px' }}>
       <div className="d-flex justify-content-between align-items-center mb-3">
@@ -33,11 +33,11 @@ const { listaObjetos, remover, novoObjeto, editarObjeto } = useContext(Agendamen
               <tr key={objeto.codigo}>
                 <td align="center">
                   <Button variant="warning" size="sm" className="me-2" onClick={() => editarObjeto(objeto)}>
-                    Editar
+                      Editar
                   </Button>
-                  <Button variant="danger" size="sm" onClick={() => remover(objeto.codigo)}>
-                    Excluir
-                  </Button>
+                 <Button variant="danger" size="sm" onClick={() => remover(objeto.codigo)}>
+                      Excluir
+                 </Button>
                 </td>
                 <td>{objeto.codigo}</td>
                 <td>{objeto.servico}</td>
