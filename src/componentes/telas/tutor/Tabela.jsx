@@ -31,9 +31,9 @@ function Tabela() {
             {listaObjetos.map((objeto) => (
               <tr key={objeto.codigo}>
                 <td align="center">
-                  <Button variant="warning" size="sm" className="me-2" onClick={() => editarObjeto(objeto)}>
-                    Editar
-                  </Button>
+                <Button variant="warning" size="sm" className="me-2" onClick={() => editarObjeto(objeto)}>
+                  Editar
+                </Button>
                   <Button variant="danger" size="sm" onClick={() => remover(objeto.codigo)}>
                     Excluir
                   </Button>

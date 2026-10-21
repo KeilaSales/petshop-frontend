@@ -51,6 +51,7 @@ function Tutor() {
       listaObjetos,
       remover,
       novoObjeto,
+      editarObjeto,
       objeto,
       handleChange,
       acaoCadastrar,

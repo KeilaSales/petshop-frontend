@@ -6,6 +6,23 @@ function Formulario() {
   const { objeto, handleChange, acaoCadastrar, exibirForm, setExibirForm } = useContext(TutorContext);
   const [validated, setValidated] = useState(false);
 
+  const handleTelefoneChange = (e) => {
+    let value = e.target.value.replace(/\D/g, ""); // Remove tudo que não for número
+    if (value.length > 11) value = value.slice(0, 11);
+    
+    if (value.length > 6) {
+      value = `(${value.slice(0, 2)}) ${value.slice(2, 7)}-${value.slice(7)}`;
+    } else if (value.length > 2) {
+      value = `(${value.slice(0, 2)}) ${value.slice(2)}`;
+    } else if (value.length > 0) {
+      value = `(${value}`;
+    }
+
+    e.target.value = value;
+    handleChange(e);
+  };
+
+
   const handleSubmit = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -61,10 +78,10 @@ function Formulario() {
                   <Form.Control
                     type="text"
                     required
-                    pattern="^\(?\d{2}\)?[\s-]?\d{4,5}[\s-]?\d{4}$"
+                    minLength={14}
                     name="telefone"
                     value={objeto?.telefone || ''}
-                    onChange={handleChange}
+                    onChange={handleTelefoneChange}
                     placeholder="(54) 99999-0000"
                   />
                   <Form.Control.Feedback type="invalid">

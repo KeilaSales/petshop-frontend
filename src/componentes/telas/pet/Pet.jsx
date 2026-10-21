@@ -33,9 +33,9 @@ function Pet() {
   const acaoCadastrar = async (e) => {
     e.preventDefault();
     const metodo = objeto.codigo === 0 ? "POST" : "PUT";
-    await cadastraPetAPI(metodo, objeto);
-    recuperaPets();
+    await cadastraPetAPI(objeto, metodo);
     setExibirForm(false);
+    recuperaPets();
   };
 
   const handleChange = (e) => {
