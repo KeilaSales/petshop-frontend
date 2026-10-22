@@ -1,3 +1,6 @@
+//serviços = Contêm as funções fetch que fazem as 
+// chamadas GET, POST, PUT e DELETE para a URL da API backend.
+
 export const getAgendamentosAPI = async () => {
   const response = await fetch(`${process.env.REACT_APP_ENDERECO_API}/agendamento`, {
     method: 'GET',

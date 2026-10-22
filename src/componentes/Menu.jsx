@@ -1,3 +1,6 @@
+//Barra de navegação do Bootstrap, que contém links 
+// para as páginas do sistema.
+
 import { Navbar, Nav, Container, Button } from 'react-bootstrap';
 import { Outlet, Link, useNavigate } from 'react-router-dom';
 function Menu() {

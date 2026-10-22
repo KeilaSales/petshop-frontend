@@ -1,3 +1,6 @@
+//telas = todas as pastas = Formulario.jsx é o componente de cadastro 
+// e edição de agendamentos/pet/tutor, que utiliza o Modal do Bootstrap
+
 import { useContext } from 'react';
 import { Modal, Button, Form, FloatingLabel, Container, Row, Col } from 'react-bootstrap';
 import AgendamentoContext from './AgendamentoContext';

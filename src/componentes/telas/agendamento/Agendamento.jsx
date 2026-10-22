@@ -1,3 +1,9 @@
+//Componente pai que gerencia o estado global (Context API) 
+// da tela de agendamento/pet/tutor, compartilhando as 
+// listas de objetos, alertas , funções de exclusão 
+// e formulário entre os componentes filhos (Tabela e 
+// Formulario) sem passar props manualmente.
+
 import { useEffect, useState } from "react";
 import { getAgendamentosAPI, deleteAgendamentoPorCodigoAPI, cadastraAgendamentoAPI } from "../../../servicos/AgendamentoServico";
 import { getPetsAPI } from "../../../servicos/PetServico";

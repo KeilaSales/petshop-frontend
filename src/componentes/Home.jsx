@@ -1,3 +1,6 @@
+//Página inicial do sistema, que contém o formulário 
+// de agendamento de serviços para pets.
+
 import { useState, useEffect } from 'react';
 import { Container, Card, Form, Button, Row, Col, Alert } from 'react-bootstrap';
 import { getAgendamentosAPI, cadastraAgendamentoAPI } from '../servicos/AgendamentoServico';

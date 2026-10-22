@@ -1,3 +1,5 @@
+//Página "Sobre" do sistema, que contém informações sobre o projeto.
+
 import { Card, Container, Row, Col } from 'react-bootstrap';
 
 

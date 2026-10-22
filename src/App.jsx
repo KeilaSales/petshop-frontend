@@ -1,3 +1,7 @@
+// Configura as rotas da aplicação usando react-router 
+// (createBrowserRouter), definindo o <Menu/> como layout 
+// pai e as telas filhas (Home, Sobre, Tutores, Pets, Agendamentos).
+
 import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
 import Menu from './componentes/Menu';
 import Home from './componentes/Home';
@@ -12,7 +16,6 @@ const RotaProtegida = ({ children }) => {
   const logado = localStorage.getItem('usuarioLogado') === 'true';
   return logado ? children : <Navigate to="/login" replace />;
 };
-
 
 const router = createBrowserRouter([
   {

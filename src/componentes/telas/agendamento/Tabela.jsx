@@ -1,3 +1,7 @@
+//telas = todas as pastas = Tabela.jsx é o componente 
+// de listagem em tabela responsiva do Bootstrap com 
+// botões de ação (editar e excluir) para cada agendamento/pet/tutor.
+
 import { useContext } from "react";
 import AgendamentoContext from "./AgendamentoContext";
 import Table from 'react-bootstrap/Table';

@@ -1,3 +1,9 @@
+//Login.jsx = Componente de login do sistema, com campos
+// de usuário e senha, que armazena o estado de login
+// ao receber as credenciais corretas ele redireciona 
+// para a tela de tutores, caso contrário exibe uma
+// mensagem de erro.
+
 import { useState } from 'react';
 import { Card, Form, Button, Container, Alert } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
